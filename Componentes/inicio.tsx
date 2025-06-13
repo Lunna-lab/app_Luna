@@ -57,7 +57,7 @@ contenedor:{
   }
 }
 )
-type InicioScreen=StackNavigationProp<RootList,'Inicio'>
+type InicioScreen=StackNavigationProp<RootList,'Inicio'>;
 
 type Props={
     navigation: InicioScreen

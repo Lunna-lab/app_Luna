@@ -20,7 +20,7 @@ export default function App(){
       initialRouteName="Inicio"
       screenOptions={{
         headerStyle:{
-          backgroundColor:'red',
+          backgroundColor:'#FFFFFF',
         },
         headerTintColor:'black',
         headerTitleStyle:{
@@ -37,7 +37,7 @@ export default function App(){
       name="Registro"
       component={Registro}
       options={{title:'Frame de registro'}}
-      />
+      /> 
       <Ruta.Screen
       name="Tareas"
       component={Tareas}

@@ -1,7 +1,7 @@
 import React from "react";
 import{ View, Text, Button, TouchableOpacity } from "react-native";
 import estilos from "./style";
-import { Task } from './Tareas';
+import type {Task} from './Tareas';
 
 interface Itemprops{
     item: Task
