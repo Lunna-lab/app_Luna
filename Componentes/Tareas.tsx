@@ -24,6 +24,7 @@ export default function Tareas(){
       }
       tmp.push(newTask);
       setTask(tmp);
+      setText('')
     }
     const markDone=()=>{console.log('marcado')}
     const deleteF=()=>{console.log('borrado')}
@@ -37,7 +38,7 @@ export default function Tareas(){
           <Text style={estilos.letras}>
             Agregar
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity>z
       </View>
       <View>
         <FlatList
