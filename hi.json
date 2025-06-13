@@ -1,0 +1,14 @@
+{
+    "nombre": "Luna",
+    "edad": 17,
+    "estudios":["Matemáticas", "Ciencias", "Historia"],
+    "Morfologia": {
+        "Tamaño": "Mediana",
+        "Talla": "Pequeña",
+        "Color": "Blanco con manchas negras"
+    },
+    "avatarR":"https://i.pinimg.com/736x/8e/5a/23/8e5a23da0298fd0782e272a6812ebf0e.jpg"
+}
+hi.edad = 17;
+hi.estudios[]
+hi.morfologia.Color

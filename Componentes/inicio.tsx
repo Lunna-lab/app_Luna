@@ -1,4 +1,6 @@
 import React from "react";
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootList } from './App';
 import { View,Text, StyleSheet, Image, TextInputComponent, TextInput, TouchableOpacity, Dimensions, FlatList, ScrollView } from "react-native";
 const estilos=StyleSheet.create({
 contenedor:{
@@ -23,7 +25,7 @@ contenedor:{
    alignItems:'center',
    textAlign:'center',
    backgroundColor:'#FFFFFF',
-   marginLeft: 85,
+   alignSelf:'center',
 
   },
   Texto:{
@@ -55,8 +57,19 @@ contenedor:{
   }
 }
 )
+type InicioScreen=StackNavigationProp<RootList,'Inicio'>
 
-   export default function App(){
+type Props={
+    navigation: InicioScreen
+ }
+
+   export default function Inicio({navigation}:Props){
+    const handleIniciar=()=>{
+        navigation.navigate('Tareas');
+    }
+     const handleRegistro=()=>{
+        navigation.navigate('Registro');
+    }
     return(
       <View style={estilos.contenedor}>
         <ScrollView>
@@ -67,10 +80,10 @@ contenedor:{
           <TextInput placeholder="Escriba..." placeholderTextColor={"#FFFFFF"} style={estilos.Input}/>
           <Text style={estilos.TextoU}>✩ ───── 「Password」───── ✩</Text>
           <TextInput placeholder="Password..." placeholderTextColor={"#FFFFFF"} style={estilos.Input}></TextInput>
-            <TouchableOpacity >
+            <TouchableOpacity onPress={handleIniciar}>
               <Text style={estilos.boton}>Ingresar</Text>
             </TouchableOpacity>
-            <TouchableOpacity >
+            <TouchableOpacity onPress={handleRegistro}>
               <Text style={estilos.boton}>Registrar</Text>
             </TouchableOpacity>
             </View>
@@ -79,4 +92,3 @@ contenedor:{
 
     )
    } 
-   

@@ -1,7 +1,9 @@
 import React from "react"; 
 import { View, Text, TextInput,StyleSheet, Image } from "react-native";
+import {Picker} from '@react-native-picker/picker';
+import { useState } from "react";
 const estilos=StyleSheet.create({
-contenedor:{
+contenedor2:{
   backgroundColor: '#000000',
   padding: 20,
   height: '100%',
@@ -35,7 +37,8 @@ contenedor:{
 )
 export default function Registro() {
   return (
-    <View style={estilos.contenedor}>
+  
+    <View style={estilos.contenedor2}>
         <Image source={require('../img/top.jpg')} style={estilos.imagen}/>
       <View>
         <Text style={estilos.TextoU}>Nombre</Text>
