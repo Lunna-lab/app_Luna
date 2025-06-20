@@ -40,10 +40,10 @@ contenedor:{
   },
   imagen:{
   width:100,
-   padding:200,
+   padding:150,
    marginTop:10,
    alignSelf:'center',
-   height: 25
+   height: 50
 
   },
   Input:{

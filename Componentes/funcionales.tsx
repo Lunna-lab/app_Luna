@@ -1,24 +1,25 @@
 import React from "react";
-import{ View, Text, Button, TouchableOpacity } from "react-native";
+import{ View, Text, TouchableOpacity } from "react-native";
 import estilos from "./style";
-import type {Task} from './Tareas';
+import {Task} from './Tareas';
 
 interface Itemprops{
     item: Task
-    markDone:()=> void
-    deleteF: ()=> void
+    markDone:(task:Task)=> void
+    deleteF: (task:Task)=> void
 }
 export default function RenderItem({ item, markDone, deleteF }: Itemprops){
    return ( 
   <View style={estilos.dataTasks}>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>markDone(item)}>
         <Text style={item.done ? estilos.textdone:estilos.texto}>{item.titulo}</Text>
-        <Text style={estilos.letras}>{item.date.toDateString()}</Text>
+        <Text style={estilos.letras}>{new Date(item.date).toDateString()}</Text>
     </TouchableOpacity>
+     
     {
     item.done &&  
     (
-        <TouchableOpacity style={estilos.botoneliminar} onPress={deleteF}>
+        <TouchableOpacity style={estilos.botoneliminar} onPress={()=>deleteF(item)}>
             <Text style={estilos.botonE}>Deshacer</Text>
         </TouchableOpacity>
 

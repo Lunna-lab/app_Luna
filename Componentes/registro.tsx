@@ -16,7 +16,8 @@ contenedor2:{
   TextoU:{
     fontSize: 20,
     color: '#FFFFFF',
-    textAlign:'center'
+    textAlign:'center',
+    alignSelf:'center',
   },
   imagen:{
   width:450,
@@ -42,43 +43,43 @@ export default function Registro() {
         <Image source={require('../img/top.jpg')} style={estilos.imagen}/>
       <View>
         <Text style={estilos.TextoU}>Nombre</Text>
-      <TextInput placeholder="Escribe aqui" placeholderTextColor={"#FFFFFF"} style={estilos.Input}>
+      <TextInput placeholder="Escribe aqui" >
         
       </TextInput>
       </View>
       <View>
         <Text style={estilos.TextoU}>Correo</Text>
-      <TextInput placeholder="Escribe aqui..." placeholderTextColor={"#FFFFFF"} style={estilos.Input}>
+      <TextInput placeholder="Escribe aqui..." >
         
       </TextInput>
       </View>
       <View>
         <Text style={estilos.TextoU}>TD</Text>
-      <TextInput placeholder="Escribe aqui..." placeholderTextColor={"#FFFFFF"} style={estilos.Input}>
+      <TextInput placeholder="Escribe aqui..." >
         
       </TextInput>
       </View>
       <View>
         <Text style={estilos.TextoU}>Numero de documento</Text>
-      <TextInput placeholder="Escribe aqui..." placeholderTextColor={"#FFFFFF"} style={estilos.Input}>
+      <TextInput placeholder="Escribe aqui..." >
         
       </TextInput>
       </View>
       <View>
         <Text style={estilos.TextoU}>Telefono</Text>
-      <TextInput placeholder="Escribe aqui..." placeholderTextColor={"#FFFFFF"} style={estilos.Input}>
+      <TextInput placeholder="Escribe aqui..." >
         
       </TextInput>
       </View>
       <View>
         <Text style={estilos.TextoU}>Usuario</Text>
-      <TextInput placeholder="Escribe aqui..." placeholderTextColor={"#FFFFFF"} style={estilos.Input}>
+      <TextInput placeholder="Escribe aqui..." >
         
       </TextInput>
       </View>
       <View>
         <Text style={estilos.TextoU}>Clave</Text>
-      <TextInput placeholder="Escribe aqui..." placeholderTextColor={"#FFFFFF"} style={estilos.Input}>
+      <TextInput placeholder="Escribe aqui..." >
         
       </TextInput>
       </View>

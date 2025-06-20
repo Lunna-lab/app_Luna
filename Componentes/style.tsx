@@ -13,11 +13,11 @@ const estilos = StyleSheet.create({
   },
   letras:{
     fontSize:25,
-    color:'white',
+    color:'#000000',
   },
   texto:{
     fontSize:50,
-    color:'#ffffff',
+    color:'#000000',
   },
   input:{
     width:'80%',
