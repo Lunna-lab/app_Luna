@@ -1,12 +1,11 @@
-import React,{use, useEffect, useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import { View,Text, TextInput, Image, TouchableOpacity, FlatList, Alert, AppState } from 'react-native';
 import estilos from './style';
 import RenderItem from './funcionales';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import PuchNotification, { PushNotificationScheduledLocalObject } from 'react-native-push-notification';
 import PushNotification from 'react-native-push-notification';
-import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
+
 const tasks = [
 ];
 export interface Task {
@@ -25,8 +24,8 @@ export default function Tareas() {
     const [selectedDate, setSelectedDate] = useState(new Date());
 
     useEffect(() => {
-      PuchNotification.configure({
-        onNotification: function(notification) {
+      PushNotification.configure({
+        onNotification: function(notification:any) {
           console.log('Notification:', notification);
           if (notification.data && notification.data.taskId) {
             checkAndUpdateOverdueTasks();
@@ -44,7 +43,7 @@ export default function Tareas() {
       vibrate: true,
     }, 
     
-    (created) => console.log(`Channel created: ${created}`)
+    (created:boolean) => console.log(`Canal ${created ? 'creado' : 'ya existía o falló al crearse'}`)
   )
   getData();
   const handledAppStateChange = (nextAppState: string) => {
@@ -109,7 +108,7 @@ const checkAndUpdateOverdueTasks= async () => {
           title: 'Recordatorio de tarea',
           message: `Es hora de: ${task.titulo}`,
           date: taskDate,
-          data:{
+          data: {
             taskId: task.id,
             taskTitle: task.titulo,
           },
@@ -121,7 +120,7 @@ const checkAndUpdateOverdueTasks= async () => {
       return undefined
     }
     const cancelNotification = (notificationId: number) => {
-      PushNotification.cancelLocalNotifications({id: notificationId.toString()});
+      PushNotification.cancelLocalNotification({id: notificationId.toString()});
     }
     const generateTaskId = () => {
       return Date.now().toString() + Math.random().toString(36).substr(2, 9)
@@ -135,12 +134,12 @@ const checkAndUpdateOverdueTasks= async () => {
       
     const tmp = [...tasks];
     const taskId = generateTaskId();
-    const newTasks= {
+    const newTasks: Task= {
         id: taskId,
         titulo: text.trim(),
         done: false,
         date: selectedDate,
-        notificationId:
+        
       }
       const notificationId = scheduleNotification(newTasks);
       if (notificationId){
@@ -225,14 +224,14 @@ const checkAndUpdateOverdueTasks= async () => {
       hour: '2-digit',
       minute: '2-digit',
     });
-
+  }
     const testNotification = () => {
       PushNotification.localNotification({
         channelId: 'task-reminders',
         title: 'Test Notification',
         message: 'la tarea ha sido programada',
       });
-      
+    }
   return(
     <View style={estilos.contenedor}>
       <Text style={estilos.texto}>Mis tareas</Text>
@@ -309,4 +308,4 @@ const checkAndUpdateOverdueTasks= async () => {
       )}
     </View>
   );
-    }}}
+    }
